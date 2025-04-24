@@ -53,3 +53,7 @@ void loop() {
     Serial.write(data);
   }
 }
+```
+## Conclusion
+
+El programa establece una comunicación bidireccional entre los puertos UART0 y UART2 del ESP32. En la función setup(), ambos puertos se inicializan a 115200 baudios. Luego, en el loop(), se comprueba constantemente si hay datos disponibles en alguno de los dos puertos. Si se detecta información en UART0, se lee y se envía a UART2; si es en UART2, se reenvía a UART0. De este modo, se crea un bucle continuo de transmisión y recepción de datos entre ambos puertos.
