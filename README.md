@@ -102,3 +102,27 @@ void loop() {
 }
 
 ```
+## Conclusion
+Este programa establece comunicación con un módulo GPS externo utilizando la librería TinyGPS y un puerto UART adicional (denominado SerialGPS). Para ello, se emplean los pines GPIO16 (RX) y GPIO17 (TX) del ESP32.
+
+Durante la fase de inicialización (setup()), se configuran tanto la comunicación serie con el ordenador como la conexión serie con el GPS. Esto permite recibir datos desde el módulo GPS mientras se monitorea la salida en el terminal del PC.
+
+En la función loop(), el programa permanece activo durante intervalos de un segundo, leyendo continuamente los datos entrantes a través de SerialGPS. Cada carácter recibido se envía al objeto gps, encargado de interpretar los mensajes NMEA. Si se detecta una secuencia válida, se extraen e imprimen en el monitor serie los siguientes datos:
+
+Latitud
+
+Longitud
+
+Número de satélites visibles
+
+Precisión de la señal
+
+Además, se muestran estadísticas útiles, como:
+
+Total de caracteres procesados
+
+Cantidad de frases NMEA válidas
+
+Número de errores de checksum
+
+Este ejercicio ofrece una manera práctica de visualizar en tiempo real información geográfica, facilitando la comprensión del funcionamiento básico de los módulos GPS y la decodificación de sus mensajes.
